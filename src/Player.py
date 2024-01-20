@@ -9,7 +9,10 @@ class Player(Drawable):
 
     def getPolygon(self):
         # TODO: Calculate the polygon from the position and angle
-        return [(self.position.x+10,self.position.y), (self.position.x,self.position.y+25), (self.position.x+10,self.position.y+20), (self.position.x+20,self.position.y+25)]
+        return [(self.position.x+10,self.position.y),
+                (self.position.x,self.position.y+25),
+                (self.position.x+10,self.position.y+20),
+                (self.position.x+20,self.position.y+25)]
 
     def rotate(self, angle):
         pass

@@ -32,6 +32,8 @@ objects = []
 # player position in pixels
 player = Player("Player 1", "red", pygame.Vector2(600,350))
 
+objects.append(player)
+
 
 while running:
     checkEvents()
@@ -44,17 +46,16 @@ while running:
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]:
         player.thrust(3)
-    #if keys[pygame.K_s]:
     if keys[pygame.K_a]:
         player.rotate(-5)
     if keys[pygame.K_d]:
         player.rotate(5)
+    if keys[pygame.K_SPACE]:
+        objects.append(player.fire())
 
-    # Add gravity
-    player.velocity.y += gravity
-
-
-    player.draw(screen, dt)
+    for object in objects:
+        object.velocity.y += gravity
+        object.draw(screen, dt)
 
     pygame.display.flip()
 

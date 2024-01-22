@@ -26,4 +26,7 @@ class Drawable:
         for point in self.shape0:
             self.shape.append(point+self.position)
 
-        pygame.draw.polygon(screen, self.color, self.shape, 0)
+        if len(self.shape0) > 1:
+            pygame.draw.polygon(screen, self.color, self.shape, 0)
+        else:
+            pygame.draw.circle(screen, self.color, self.position, 1)

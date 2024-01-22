@@ -40,3 +40,10 @@ class Player(Drawable):
     def draw(self, screen, dt):
         super().draw(screen, dt)
         # TODO: Draw thrust if player is accelerating
+
+    def fire(self):
+        x = math.sin(self.angle*toRad) * 300
+        y = math.cos(self.angle*toRad) * 300
+        bullet = Drawable([pygame.Vector2(0,0)], "White", pygame.Vector2(self.position + self.shape0[0]))
+        bullet.velocity = pygame.Vector2(x,y) + self.velocity
+        return bullet
